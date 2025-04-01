@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homing Dove International South Sudan</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #2962ff;
+            --secondary-color: #0d47a1;
+            --accent-color: #ff6d00;
+            --light-color: #f5f5f5;
+            --dark-color: #212121;
+            --success-color: #00c853;
+            --warning-color: #ffab00;
+            --danger-color: #d50000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-primary {
+            color: var(--primary-color);
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .nav-links {
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark-color);
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 10px auto 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        /* Login Portal Section */
+        .login-portal {
+            background: var(--light-color);
+            padding: 100px 0;
+        }
+        
+        .portal-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            background: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: #fff;
+        }
+        
+        .tab-content {
+            display: none;
+            background: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        /* Materials Section */
+        .materials {
+            padding: 50px 0;
+        }
+        
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .material-card {
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .material-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .material-card h3 {
+            margin-bottom: 10px;
+        }
+        
+        .material-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: var(--success-color);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-header h2 {
+            color: var(--primary-color);
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        /* Admin Dashboard Styles */
+        .dashboard {
+            display: flex;
+            min-height: calc(100vh - 70px);
+        }
+        
+        .sidebar {
+            width: 250px;
+            background: var(--dark-color);
+            color: #fff;
+            padding: 20px 0;
+        }
+        
+        .sidebar-header {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid #444;
+        }
+        
+        .sidebar-menu {
+            padding: 20px 0;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #ddd;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background: #f5f5f5;
+        }
+        
+        .card {
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .card-header h3 {
+            color: var(--primary-color);
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .table th,
+        .table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .table th {
+            background: #f9f9f9;
+            font-weight: 500;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status-pending {
+            background: #fff3e0;
+            color: #ff6d00;
+        }
+        
+        .status-approved {
+            background: #e8f5e9;
+            color: #00c853;
+        }
+        
+        .status-rejected {
+            background: #ffebee;
+            color: #d50000;
+        }
+        
+        .upload-area {
+            border: 2px dashed #ddd;
+            border-radius: 5px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .upload-area i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Homing <span>Dove</span></a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portal">Login Portal</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Homing Dove International South Sudan</h1>
+            <p>Providing quality education, financial services, and more to empower our community for a brighter future.</p>
+            <a href="#portal" class="btn">Login Portal</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a comprehensive range of services to meet the needs of our community.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-school"></i>
+                    <h3>Nursery School</h3>
+                    <p>Quality early childhood education to nurture young minds and prepare them for primary education.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Primary School</h3>
+                    <p>Comprehensive primary education following the national curriculum with modern teaching methods.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Secondary School</h3>
+                    <p>Advanced secondary education preparing students for university and professional careers.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-money-bill-transfer"></i>
+                    <h3>Money Transfer</h3>
+                    <p>Secure and reliable domestic and international money transfer services at competitive rates.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hand-holding-dollar"></i>
+                    <h3>Loan Services</h3>
+                    <p>Financial assistance with flexible repayment options to support personal and business needs.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Transportation</h3>
+                    <p>Reliable transportation services for goods and passengers across the region.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Portal Section -->
+    <section class="login-portal" id="portal">
+        <div class="container">
+            <div class="section-title">
+                <h2>Login Portal</h2>
+                <p>Access our various services through our secure portals.</p>
+            </div>
+            
+            <div class="portal-tabs">
+                <button class="tab-btn active" data-tab="student">Student Portal</button>
+                <button class="tab-btn" data-tab="staff">Staff Portal</button>
+                <button class="tab-btn" data-tab="loan">Loan Application</button>
+            </div>
+            
+            <!-- Student Portal -->
+            <div class="tab-content active" id="student-tab">
+                <h3>Student Portal Login</h3>
+                <form id="studentLoginForm">
+                    <div class="form-group">
+                        <label for="studentUsername">Username</label>
+                        <input type="text" id="studentUsername" placeholder="Enter your username" value="HDstudent" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentPassword">Password</label>
+                        <input type="password" id="studentPassword" placeholder="Enter your password" value="Student" readonly>
+                    </div>
+                    <button type="button" class="btn" id="studentLoginBtn">Login</button>
+                </form>
+                
+                <!-- Student Portal Content (hidden until login) -->
+                <div id="studentPortalContent" style="display: none; margin-top: 30px;">
+                    <h3>Welcome to Student Portal</h3>
+                    <div class="materials">
+                        <h4>Study Materials</h4>
+                        <div class="materials-grid" id="studentMaterials">
+                            <!-- Materials will be loaded here dynamically -->
+                        </div>
+                    </div>
+                    
+                    <div class="subjects" style="margin-top: 30px;">
+                        <h4>Subjects</h4>
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <i class="fas fa-math"></i>
+                                <h3>Mathematics</h3>
+                                <p>Access mathematics study materials and resources.</p>
+                                <a href="#" class="btn-outline">View Materials</a>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-flask"></i>
+                                <h3>Science</h3>
+                                <p>Explore science subjects including physics, chemistry, and biology.</p>
+                                <a href="#" class="btn-outline">View Materials</a>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-language"></i>
+                                <h3>English</h3>
+                                <p>Improve your English language skills with our resources.</p>
+                                <a href="#" class="btn-outline">View Materials</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Staff Portal -->
+            <div class="tab-content" id="staff-tab">
+                <h3>Staff Portal Login</h3>
+                <form id="staffLoginForm">
+                    <div class="form-group">
+                        <label for="staffUsername">Username</label>
+                        <input type="text" id="staffUsername" placeholder="Enter your username" value="HDinternational" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="staffPassword">Password</label>
+                        <input type="password" id="staffPassword" placeholder="Enter your password" value="Dove@2023" readonly>
+                    </div>
+                    <button type="button" class="btn" id="staffLoginBtn">Login</button>
+                </form>
+                
+                <!-- Staff Portal Content (hidden until login) -->
+                <div id="staffPortalContent" style="display: none; margin-top: 30px;">
+                    <h3>Welcome to Staff Portal</h3>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Upload Study Materials</h3>
+                        </div>
+                        <div class="upload-area" id="uploadArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag and drop files here or click to browse</p>
+                            <input type="file" id="fileInput" style="display: none;" multiple>
+                        </div>
+                        <div class="form-group">
+                            <label for="materialTitle">Material Title</label>
+                            <input type="text" id="materialTitle" placeholder="Enter material title">
+                        </div>
+                        <div class="form-group">
+                            <label for="materialSubject">Subject</label>
+                            <select id="materialSubject">
+                                <option value="mathematics">Mathematics</option>
+                                <option value="science">Science</option>
+                                <option value="english">English</option>
+                                <option value="history">History</option>
+                                <option value="geography">Geography</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn" id="uploadBtn">Upload Material</button>
+                    </div>
+                    
+                    <div class="card" style="margin-top: 20px;">
+                        <div class="card-header">
+                            <h3>Uploaded Materials</h3>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Subject</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="uploadedMaterialsList">
+                                <!-- Uploaded materials will be listed here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Loan Application -->
+            <div class="tab-content" id="loan-tab">
+                <h3>Loan Application Form</h3>
+                <form id="loanApplicationForm">
+                    <div class="form-group">
+                        <label for="fullName">Applicant's Full Name</label>
+                        <input type="text" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" placeholder="Enter your state" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="county">County</label>
+                        <input type="text" id="county" placeholder="Enter your county" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="payam">Payam</label>
+                        <input type="text" id="payam" placeholder="Enter your payam" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="idNumber">ID Number</label>
+                        <input type="text" id="idNumber" placeholder="Enter your ID number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="witness">Witness Name</label>
+                        <input type="text" id="witness" placeholder="Enter witness name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="currency">Currency Type</label>
+                        <select id="currency" required>
+                            <option value="">Select currency</option>
+                            <option value="USD">US Dollar (USD)</option>
+                            <option value="SSP">South Sudanese Pound (SSP)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Loan Amount</label>
+                        <input type="number" id="amount" placeholder="Enter loan amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration of Payment (months)</label>
+                        <input type="number" id="duration" placeholder="Enter duration in months" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="purpose">Purpose of the Loan</label>
+                        <textarea id="purpose" rows="4" placeholder="Explain the purpose of the loan" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Reach out to us for any inquiries or support you may need.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Juba, South Sudan</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>+211 123 456 789</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@homingdove-ss.org</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Homing Dove</h3>
+                    <p>Empowering communities through education and financial services in South Sudan.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portal">Login Portal</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Nursery School</a></li>
+                        <li><a href="#">Primary School</a></li>
+                        <li><a href="#">Secondary School</a></li>
+                        <li><a href="#">Money Transfer</a></li>
+                        <li><a href="#">Loan Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Homing Dove International South Sudan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loan Application Success Modal -->
+    <div class="modal" id="loanSuccessModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Application Submitted</h2>
+                <button class="close-btn" id="closeLoanModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Your loan application has been submitted successfully. We will review your application and contact you shortly.</p>
+                <p>Application Reference: <strong id="applicationRef"></strong></p>
+                <button class="btn" id="okLoanBtn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div class="modal" id="adminDashboardModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Admin Dashboard</h2>
+                <button class="close-btn" id="closeAdminModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="dashboard">
+                    <div class="sidebar">
+                        <div class="sidebar-header">
+                            <h3>Homing Dove</h3>
+                            <p>Admin Panel</p>
+                        </div>
+                        <ul class="sidebar-menu">
+                            <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                            <li><a href="#"><i class="fas fa-users"></i> Students</a></li>
+                            <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Staff</a></li>
+                            <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Loan Applications</a></li>
+                            <li><a href="#"><i class="fas fa-book"></i> Study Materials</a></li>
+                            <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="main-content">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Recent Loan Applications</h3>
+                                <a href="#" class="btn-outline">View All</a>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Deng</td>
+                                        <td>$1,000</td>
+                                        <td>2023-10-15</td>
+                                        <td><span class="status status-pending">Pending</span></td>
+                                        <td><a href="#" class="btn-outline">View</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mary Akech</td>
+                                        <td>SSP 500,000</td>
+                                        <td>2023-10-14</td>
+                                        <td><span class="status status-approved">Approved</span></td>
+                                        <td><a href="#" class="btn-outline">View</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Peter Bol</td>
+                                        <td>$2,500</td>
+                                        <td>2023-10-12</td>
+                                        <td><span class="status status-rejected">Rejected</span></td>
+                                        <td><a href="#" class="btn-outline">View</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+
+        // Tab Switching
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+
+        // Student Login
+        document.getElementById('studentLoginBtn').addEventListener('click', function() {
+            const username = document.getElementById('studentUsername').value;
+            const password = document.getElementById('studentPassword').value;
+            
+            if (username === 'HDstudent' && password === 'Student') {
+                document.getElementById('studentLoginForm').style.display = 'none';
+                document.getElementById('studentPortalContent').style.display = 'block';
+                loadStudentMaterials();
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+
+        // Staff Login
+        document.getElementById('staffLoginBtn').addEventListener('click', function() {
+            const username = document.getElementById('staffUsername').value;
+            const password = document.getElementById('staffPassword').value;
+            
+            if (username === 'HDinternational' && password === 'Dove@2023') {
+                document.getElementById('staffLoginForm').style.display = 'none';
+                document.getElementById('staffPortalContent').style.display = 'block';
+                loadUploadedMaterials();
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+
+        // File Upload Handling
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = 'var(--primary-color)';
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = '#ddd';
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#ddd';
+            fileInput.files = e.dataTransfer.files;
+        });
+        
+        // Upload Button
+        document.getElementById('uploadBtn').addEventListener('click', function() {
+            const files = fileInput.files;
+            const title = document.getElementById('materialTitle').value;
+            const subject = document.getElementById('materialSubject').value;
+            
+            if (files.length === 0) {
+                alert('Please select a file to upload');
+                return;
+            }
+            
+            if (!title) {
+                alert('Please enter a title for the material');
+                return;
+            }
+            
+            // In a real application, you would upload the file to a server here
+            // For this demo, we'll simulate the upload
+            
+            // Create a mock file object
+            const file = files[0];
+            const material = {
+                id: Date.now(),
+                title: title,
+                subject: subject,
+                fileName: file.name,
+                fileSize: formatFileSize(file.size),
+                uploadDate: new Date().toLocaleDateString(),
+                fileUrl: URL.createObjectURL(file)
+            };
+            
+            // Save to localStorage
+            let materials = JSON.parse(localStorage.getItem('studyMaterials') || [];
+            materials.push(material);
+            localStorage.setItem('studyMaterials', JSON.stringify(materials));
+            
+            // Refresh the lists
+            loadUploadedMaterials();
+            loadStudentMaterials();
+            
+            // Reset form
+            fileInput.value = '';
+            document.getElementById('materialTitle').value = '';
+            
+            alert('Material uploaded successfully!');
+        });
+        
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        function loadUploadedMaterials() {
+            const materials = JSON.parse(localStorage.getItem('studyMaterials')) || [];
+            const tableBody = document.getElementById('uploadedMaterialsList');
+            
+            tableBody.innerHTML = '';
+            
+            materials.forEach(material => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${material.title}</td>
+                    <td>${material.subject}</td>
+                    <td>${material.uploadDate}</td>
+                    <td>
+                        <a href="${material.fileUrl}" download="${material.fileName}" class="download-btn">Download</a>
+                        <button class="btn-outline delete-btn" data-id="${material.id}">Delete</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+            
+            // Add event listeners to delete buttons
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    deleteMaterial(id);
+                });
+            });
+        }
+        
+        function loadStudentMaterials() {
+            const materials = JSON.parse(localStorage.getItem('studyMaterials')) || [];
+            const materialsGrid = document.getElementById('studentMaterials');
+            
+            materialsGrid.innerHTML = '';
+            
+            if (materials.length === 0) {
+                materialsGrid.innerHTML = '<p>No study materials available yet.</p>';
+                return;
+            }
+            
+            materials.forEach(material => {
+                const card = document.createElement('div');
+                card.className = 'material-card';
+                card.innerHTML = `
+                    <h3>${material.title}</h3>
+                    <p><strong>Subject:</strong> ${material.subject}</p>
+                    <p><strong>Uploaded:</strong> ${material.uploadDate}</p>
+                    <p><strong>Size:</strong> ${material.fileSize}</p>
+                    <a href="${material.fileUrl}" download="${material.fileName}" class="download-btn">Download</a>
+                `;
+                materialsGrid.appendChild(card);
+            });
+        }
+        
+        function deleteMaterial(id) {
+            let materials = JSON.parse(localStorage.getItem('studyMaterials')) || [];
+            materials = materials.filter(material => material.id !== id);
+            localStorage.setItem('studyMaterials', JSON.stringify(materials));
+            loadUploadedMaterials();
+            loadStudentMaterials();
+        }
+        
+        // Loan Application Form
+        document.getElementById('loanApplicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would send this data to a server
+            // For this demo, we'll simulate the submission
+            
+            // Generate a random reference number
+            const refNumber = 'HD-' + Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('applicationRef').textContent = refNumber;
+            
+            // Show success modal
+            document.getElementById('loanSuccessModal').style.display = 'flex';
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Close Loan Modal
+        document.getElementById('closeLoanModal').addEventListener('click', function() {
+            document.getElementById('loanSuccessModal').style.display = 'none';
+        });
+        
+        document.getElementById('okLoanBtn').addEventListener('click', function() {
+            document.getElementById('loanSuccessModal').style.display = 'none';
+        });
+        
+        // Admin Dashboard Button (for demo purposes)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'a') {
+                document.getElementById('adminDashboardModal').style.display = 'flex';
+            }
+        });
+        
+        document.getElementById('closeAdminModal').addEventListener('click', function() {
+            document.getElementById('adminDashboardModal').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
